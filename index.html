@@ -12,6 +12,7 @@
       href="./assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="validator.js" defer></script>
 
     <title>
       Frontend Mentor | Newsletter sign-up form with success message
@@ -19,6 +20,20 @@
   </head>
   <body>
     <main>
+      <dialog>
+        <form novalidate method="dialog">
+          <div class="success_image">
+            <img src="assets/images/icon-success.svg" />
+          </div>
+          <h2>Thanks for subscribing!</h2>
+          <p>
+            A confirmation email has been sent to
+            <span class="email_retrivied bold"></span>. Please open it and click
+            the button to confirm your subscription.
+          </p>
+          <button class="close_dialog" type="submit">Dismiss message</button>
+        </form>
+      </dialog>
       <div class="container">
         <div class="chart_image">
           <picture>
@@ -49,7 +64,7 @@
             <p class="bold">Email address</p>
             <span class="error_message hidden">Valid email required</span>
           </div>
-          <form novalidate method="GET">
+          <form novalidate method="GET" class="email_field">
             <input type="email" placeholder="email@company.com" required />
             <button class="subscribe">Subscribe to monthly newsletter</button>
           </form>

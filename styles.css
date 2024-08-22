@@ -76,7 +76,7 @@ input:placeholder-shown {
     opacity: 0.5;
 }
 
-:where(input:user-invalid) {
+.error {
     color: var(--tomato);
     border-color: var(--tomato);
     outline: none;
@@ -107,12 +107,47 @@ button {
     font-size: 0.625rem;
 }
 
-.subscribe:active {
+:is(.subscribe, .close_dialog):active {
     background: linear-gradient(45deg, hsla(4, 100%, 67%, 0.6), tomato);
 }
 
 .hidden {
     display: none;
+}
+
+dialog {
+    border-radius: 1em;
+    padding: 2em;
+    max-inline-size: 40ch;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 0.825rem;
+}
+
+dialog p {
+    color: var(--grey);
+}
+
+dialog span {
+    color: black;
+}
+
+dialog img {
+    width: 3em;
+}
+
+dialog h2 {
+    font-size: 1.75rem;
+}
+
+dialog > form > * + * {
+    margin-block-start: 1.25rem;
+}
+
+dialog::backdrop {
+    background-color: var(--dark-slate-grey);
 }
 
 
@@ -163,5 +198,32 @@ button {
 
     ul li img {
         margin: revert;
+    }
+}
+
+@media (max-width: 767px) {
+    dialog {
+        all: revert;
+        
+        position: fixed;
+        padding: 2em;
+        height: 100svh;
+        border-radius: 0;
+        font-size: 1rem;
+        z-index: 2;
+    }
+
+    
+    
+    dialog > form:first-child {
+        margin-block-start: 15vh;
+    }
+
+
+    .close_dialog {
+        position: absolute;
+        bottom: 7em;
+        left: 2em;
+        width: calc(100% - 4em);
     }
 }
