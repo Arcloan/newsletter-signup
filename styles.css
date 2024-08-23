@@ -127,7 +127,7 @@ dialog {
 }
 
 dialog p {
-    color: var(--grey);
+    color: var(--charcoal-grey);
 }
 
 dialog span {
@@ -222,7 +222,7 @@ dialog::backdrop {
 
     .close_dialog {
         position: absolute;
-        bottom: 7em;
+        bottom: 4em;
         left: 2em;
         width: calc(100% - 4em);
     }
